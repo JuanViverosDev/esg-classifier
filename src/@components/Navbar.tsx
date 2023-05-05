@@ -28,7 +28,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" style={{backgroundColor: "white"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -42,7 +42,7 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#333",
               textDecoration: "none",
             }}
           >
@@ -56,7 +56,7 @@ function Navbar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="primary"
             >
               <MenuIcon />
             </IconButton>
@@ -80,12 +80,11 @@ function Navbar() {
             >
               {navConfig.map((page) => (
                 <MenuItem key={page.id} onClick={() => navigate(page.path)}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                  <p className="text-center text-[#333]">{page.name}</p>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -98,18 +97,18 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#333",
               textDecoration: "none",
             }}
           >
-            LOGO
+            ESG Classifier
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {navConfig.map((page) => (
               <Button
                 key={page.id}
                 onClick={() => navigate(page.path)}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "#333", display: "block" }}
               >
                 {page.name}
               </Button>

@@ -6,9 +6,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <div className="absolute w-full top-0">
         <Navbar />
-      </div>
         <Routes>
           {routesConfig.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />
