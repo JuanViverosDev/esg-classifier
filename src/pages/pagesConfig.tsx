@@ -29,16 +29,16 @@ export const navigationConfig = [
   {
     id: "home",
     path: "/",
-    name: "Home",
+    name: "Inicio",
   },
+  // {
+  //   id: "about",
+  //   path: "/about",
+  //   name: "Sobre nosotros",
+  // },
   {
     id: "products",
     path: "/products",
-    name: "Products",
-  },
-  {
-    id: "about",
-    path: "/about",
-    name: "About",
+    name: "Productos",
   },
 ];
