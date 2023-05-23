@@ -71,7 +71,7 @@ const Products = () => {
           {products?.[0] && (
             <div className="my-20 mx-20 p-10 rounded-3xl bg-yellow-300">
               <p className=" md:text-3xl font-bold mb-10">
-                Producto destacado de la temporada:
+                Producto más sostenible de la temporada:
               </p>
               <div className="flex p-4 justify-between bg-zinc-200 rounded-xl mb-5 items-center">
                 <div className="flex gap-4">
