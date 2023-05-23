@@ -7,6 +7,8 @@ import {
   UserGroupIcon,
   ScaleIcon,
 } from "@heroicons/react/24/solid";
+import Loader from "../../@components/Loader";
+import { toast } from "react-toastify";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -14,6 +16,8 @@ const Products = () => {
   const find = new URLSearchParams(useLocation().search).get("find");
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errorBack, setErrorBack] = useState(false);
 
   const handleSearch = () => {
     navigate({ pathname: `/products`, search: `?find=${search}` });
@@ -22,12 +26,25 @@ const Products = () => {
   useEffect(() => {
     async function fetchData() {
       if (find) {
+        setLoading(true);
         await axios
           .get(`http://localhost:3001/api/${find}`)
           .then((res) => {
             setProducts(res.data);
+            setLoading(false);
           })
           .catch((err) => {
+            setLoading(false);
+            toast.error("Error al encontrar este producto", {
+              position: "bottom-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+            });
+            setTimeout(() => {
+              navigate("/products");
+            }, 3000);
             console.log(err);
           });
       }
@@ -37,6 +54,12 @@ const Products = () => {
 
   return (
     <>
+      {loading && (
+        <div className="absolute z-10 w-full h-screen flex justify-center items-center bg-white">
+          <Loader />
+        </div>
+      )}
+
       {find ? (
         <>
           <div className="pt-40 pb-20 shadow gap-6 flex flex-col">
@@ -47,7 +70,9 @@ const Products = () => {
           </div>
           {products?.[0] && (
             <div className="my-20 mx-20 p-10 rounded-3xl bg-yellow-300">
-              <p className=" md:text-3xl font-bold mb-10">Producto destacado de la temporada:</p>
+              <p className=" md:text-3xl font-bold mb-10">
+                Producto destacado de la temporada:
+              </p>
               <div className="flex p-4 justify-between bg-zinc-200 rounded-xl mb-5 items-center">
                 <div className="flex gap-4">
                   <div className="flex flex-col gap-4">
