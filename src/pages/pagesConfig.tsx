@@ -31,11 +31,11 @@ export const navigationConfig = [
     path: "/",
     name: "Inicio",
   },
-  // {
-  //   id: "about",
-  //   path: "/about",
-  //   name: "Sobre nosotros",
-  // },
+  {
+    id: "about",
+    path: "/about",
+    name: "Sobre nosotros",
+  },
   {
     id: "products",
     path: "/products",
