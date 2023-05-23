@@ -6,6 +6,8 @@ import {
   GlobeAmericasIcon,
   UserGroupIcon,
   ScaleIcon,
+  CheckCircleIcon,
+  CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import Loader from "../../@components/Loader";
 import { toast } from "react-toastify";
@@ -99,6 +101,10 @@ const Products = () => {
                             {products?.[0]?.esgScore?.governance_score}
                           </p>
                         </div>
+                        <div className="flex items-center">
+                          <CheckBadgeIcon className="h-5 w-5 mr-1" />
+                          <p className="">{products?.[0]?.esgScore?.total}</p>
+                        </div>
                       </div>
                     </div>
                     <p className="md:text-xl">{products?.[0]?.price}</p>
@@ -108,13 +114,13 @@ const Products = () => {
                 <div className="flex flex-col gap-2">
                   <button
                     className="bg-zinc-100 p-2 rounded-md"
-                    onClick={() => window.open(product.url, "_blank")}
+                    onClick={() => window.open(product?.url, "_blank")}
                   >
                     Comprar
                   </button>
                   <button
                     className="bg-zinc-100 p-2 rounded-md"
-                    onClick={() => window.open(product.url, "_blank")}
+                    onClick={() => window.open(product?.url, "_blank")}
                   >
                     Ver detalles
                   </button>
@@ -127,36 +133,40 @@ const Products = () => {
               <div className="flex gap-4">
                 <div className="flex flex-col gap-4">
                   <div>
-                    <p className="md:text-2xl font-semibold">{product.name}</p>
+                    <p className="md:text-2xl font-semibold">{product?.name}</p>
                     <div className="md:text-xl font-medium flex gap-4">
                       <div className="flex items-center">
                         <GlobeAmericasIcon className="h-5 w-5 mr-1" />
-                        <p className="">{product.esgScore.environment_score}</p>
+                        <p className="">{product?.esgScore?.environment_score}</p>
                       </div>
                       <div className="flex items-center">
                         <UserGroupIcon className="h-5 w-5 mr-1" />
-                        <p className="">{product.esgScore.social_score}</p>
+                        <p className="">{product?.esgScore?.social_score}</p>
                       </div>
                       <div className="flex items-center">
                         <ScaleIcon className="h-5 w-5 mr-1" />
-                        <p className="">{product.esgScore.governance_score}</p>
+                        <p className="">{product?.esgScore?.governance_score}</p>
+                      </div>
+                      <div className="flex items-center">
+                        <CheckCircleIcon className="h-5 w-5 mr-1" />
+                        <p className="">{product?.esgScore?.total}</p>
                       </div>
                     </div>
                   </div>
-                  <p className="md:text-xl">{product.price}</p>
+                  <p className="md:text-xl">{product?.price}</p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
                 <button
                   className="bg-zinc-100 p-2 rounded-md"
-                  onClick={() => window.open(product.url, "_blank")}
+                  onClick={() => window.open(product?.url, "_blank")}
                 >
                   Comprar
                 </button>
                 <button
                   className="bg-zinc-100 p-2 rounded-md"
-                  onClick={() => window.open(product.url, "_blank")}
+                  onClick={() => window.open(product?.url, "_blank")}
                 >
                   Ver detalles
                 </button>
